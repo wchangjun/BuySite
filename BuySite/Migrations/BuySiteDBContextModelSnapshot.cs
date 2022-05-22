@@ -19,7 +19,7 @@ namespace BuySite.Migrations
                 .HasAnnotation("ProductVersion", "5.0.16")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("BuySite.Models.Entity.Order", b =>
+            modelBuilder.Entity("BuySite.Models.Entity.OrderDetile", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
@@ -49,7 +49,7 @@ namespace BuySite.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Order");
+                    b.ToTable("OrderDetile");
                 });
 
             modelBuilder.Entity("BuySite.Models.Entity.OrderState", b =>
@@ -99,7 +99,7 @@ namespace BuySite.Migrations
                     b.ToTable("User");
                 });
 
-            modelBuilder.Entity("BuySite.Models.Entity.Order", b =>
+            modelBuilder.Entity("BuySite.Models.Entity.OrderDetile", b =>
                 {
                     b.HasOne("BuySite.Models.Entity.OrderState", "OrderState")
                         .WithMany()
