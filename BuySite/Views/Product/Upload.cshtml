@@ -1,0 +1,110 @@
+﻿<div class="container">
+    <div>
+        <form id="Upload">
+            <div class="form-group row">
+                <label for="title" class="col-sm-4 col-form-label">商品名稱</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="title" v-model="hello.title">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="pric" class="col-sm-4 col-form-label">價錢</label>
+                <div class="col-sm-8">
+                    <input type="number" class="form-control" id="pric" v-model="hello.price">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="description" class="col-sm-4 col-form-label">敘述</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="description" v-model="hello.description">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="pic" class="col-sm-4 col-form-label">上傳圖片</label>
+                <div class="col-sm-8">
+                    @*事件轉換用v-on:change*@
+                    <input type="file" class="form-control" id="pic" v-on:change="up">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">操作</label>
+                <div class="col-sm-8">
+                    <button type="button" class="btn btn-primary" v-on:click="s">新增</button>
+                    @*<input id="aa" type="submit" class="btn btn-primary" />*@
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#Upload',
+        data: {
+            hello: {
+                title: "",
+                price: "",
+                description: "",
+                pic: null
+            }
+        },
+        methods: {
+            up: function (event) {
+                alert("1");
+                console.log(event)
+                this.hello.pic = event.target.files[0] //限制這個list陣列只能傳一張
+
+            },
+            s: function () {
+                alert("1");
+                var bodyFormData = new FormData();
+                bodyFormData.append("Title", this.hello.title);
+                bodyFormData.append("Pric", this.hello.price);
+                bodyFormData.append("description", this.hello.description);
+                bodyFormData.append("pic", this.hello.pic);
+
+                axios.post("/Product/Upload" + FormData)
+                    .then((resp) => {
+                        console.log(resp);
+                    })
+                    .catch((res) => {
+                        console.log(res);
+                    });
+            },
+            //send: function () {
+            //    alert("1");
+            //    var bodyFormData = new FormData();
+            //    bodyFormData.append("Title", this.hello.title);
+            //    bodyFormData.append("Pric", this.hello.price);
+            //    bodyFormData.append("description", this.hello.description);
+            //    bodyFormData.append("pic", this.hello.pic);
+
+            //    axios({
+            //        method: "post",
+            //        url: "/Product/UploadFile",
+            //        data: bodyFormData,
+            //        headers: { "Content-Type": "multipart/form-data" },
+            //    })
+            //        .then(function (response) {
+            //            //handle success
+            //            console.log(response);
+            //        })
+            //        .catch(function (response) {
+            //            //handle error
+            //            console.log(response);
+            //        });
+            //}
+        },
+    });
+</script>
+<script>
+    $('div').on('submit', function () {
+        $('input[type="submit"]').val('傳送.....');
+        /*$("input[type='submit']").prop('disabled', true);*/
+    });
+
+    //$('div').on('submit', function (event) {
+    //    console.log(event)
+    //    $
+    //});
+</script>

@@ -1,0 +1,15 @@
+C:\Users\User\Documents\BuySite\BuySite.Service\bin\Debug\net5.0\BuySite.Service.deps.json
+C:\Users\User\Documents\BuySite\BuySite.Service\bin\Debug\net5.0\BuySite.Service.dll
+C:\Users\User\Documents\BuySite\BuySite.Service\bin\Debug\net5.0\ref\BuySite.Service.dll
+C:\Users\User\Documents\BuySite\BuySite.Service\bin\Debug\net5.0\BuySite.Service.pdb
+C:\Users\User\Documents\BuySite\BuySite.Service\obj\Debug\net5.0\BuySite.Service.csproj.AssemblyReference.cache
+C:\Users\User\Documents\BuySite\BuySite.Service\obj\Debug\net5.0\BuySite.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Documents\BuySite\BuySite.Service\obj\Debug\net5.0\BuySite.Service.AssemblyInfoInputs.cache
+C:\Users\User\Documents\BuySite\BuySite.Service\obj\Debug\net5.0\BuySite.Service.AssemblyInfo.cs
+C:\Users\User\Documents\BuySite\BuySite.Service\obj\Debug\net5.0\BuySite.Service.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\BuySite\BuySite.Service\obj\Debug\net5.0\BuySite.Service.dll
+C:\Users\User\Documents\BuySite\BuySite.Service\obj\Debug\net5.0\ref\BuySite.Service.dll
+C:\Users\User\Documents\BuySite\BuySite.Service\obj\Debug\net5.0\BuySite.Service.pdb
+C:\Users\User\Documents\BuySite\BuySite.Service\bin\Debug\net5.0\Project.Models.dll
+C:\Users\User\Documents\BuySite\BuySite.Service\bin\Debug\net5.0\Project.Models.pdb
+C:\Users\User\Documents\BuySite\BuySite.Service\obj\Debug\net5.0\BuySite.Service.csproj.CopyComplete

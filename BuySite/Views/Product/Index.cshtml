@@ -1,0 +1,165 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+          crossorigin="anonymous">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+            crossorigin="anonymous"></script>
+    @*<link rel="stylesheet" href="css/all.css">*@
+    <title>CH11.Cart-Page</title>
+    <link rel="stylesheet" href="~/css/product.css" type="text/css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light ">
+        <a href="#" class="navbar-brand mb-0 h1" style="font-weight: bold;"><i class="fas fa-heart text-info mr-1"></i>血拚起來</a>
+        <div class="dropdown ml-auto">
+            <button class="btn btn-cart btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-shopping-cart text-dark fa-2x"></i>
+                <span class="badge badge-pill badge-danger">9</span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" style="min-width: 300px" aria-labelledby="dropdownMenuButton">
+                <div class="p-3">
+                    <table class="table table-sm ">
+                        <h6>已選擇商品</h6>
+                        <tbody>
+                            <tr>
+                                <td class="align-middle text-center">
+                                    <a href="#removeModal" data-price="1999" data-title="不求人" data-toggle="modal"
+                                       data-target="#removeModal"><i class="far fa-trash-alt "></i></a>
+                                </td>
+                                <td class="align-middle">不求人</td>
+                                <td class="align-middle">1件</td>
+                                <td class="align-middle text-right">$1999</td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle text-center">
+                                    <a href="#removeModal" data-price="999" data-title="一級偽裝帽" data-toggle="modal"
+                                       data-target="#removeModal"><i class="far fa-trash-alt "></i></a>
+                                </td>
+                                <td class="align-middle">一級偽裝帽</td>
+                                <td class="align-middle">1件</td>
+                                <td class="align-middle text-right">$999</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="#" class="btn btn-block btn-primary btn-sm text-white">確認結帳</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section>
+        <div class="jumbotron jumbotron-fluid jumbotron-bg d-flex align-items-end">
+            <div class="container jumbotron-text  text-white p-4">
+                <h1 class="display-4 " style="font-weight: bold;">買到剁手手！年終出清！</h1>
+                <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+            </div>
+        </div>
+    </section>
+
+
+    @*<div class="col-md-3">
+            <div class="list-group sticky-top mt-3">
+                <a href="#pane-1" class="list-group-item list-group-item-action active " data-toggle="list">全部商品</a>
+                <a href="#pane-2" class="list-group-item list-group-item-action" data-toggle="list">精品特區</a>
+                <a href="#pane-3" class="list-group-item list-group-item-action" data-toggle="list">配件優惠</a>
+            </div>
+        </div>*@
+
+
+    @*<div class="col-md-9" id="product">
+        <div class="tab-content" v-for="item in products">
+            <div class="tab-pane active" id="pane-1" role="tabpanel">
+                <div class="row">
+                    <div class="col-md-4 my-3">
+                        <div class="card text-center h-100 border-0 box-shadow">
+                            <img src="https://images.unsplash.com/photo-1491336477066-31156b5e4f35?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+                                 class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title " style="font-weight: bold;">{{item.name}}</h5>
+                                <p class="card-text ">{{item.description}}</p>
+                            </div>
+                            <div class="card-footer border-top-0 bg-white">
+
+                                <a href="#" class="btn btn-outline-secondary btn-sm mt-2 d-block"><i class="fas fa-shopping-cart mr-1"></i>加入購物車</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+    <div class="container" id="product">
+        <div class="row" v-for="item in products">
+            <div class="card" style="width: 18rem;" >
+                <img class="card-img-top" src="/ProductPicture/pexels-pixabay-163117.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.name}}</h5>
+                    <p class="card-text">{{item.description}}</p>
+                    <p class="card-text">${{item.price}}</p>
+                    <button class="btn btn-primary">加入購物車</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script>
+
+        $(document).ready(function () {
+            $('#removeModal').on('show.bs.modal', function (event) {
+                var btn = $(event.relatedTarget);
+                var title = btn.data('title');
+                var price = btn.data('price');
+                var modal = $(this);
+                modal.find('.modal-title').text('確認刪除 ' + title);
+                modal.find('.modal-body').text('您要刪除 ' + title + ' $ ' + price + '元 嗎?');
+            });
+
+        });
+
+    </script>
+
+
+</body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: "#product",
+        data: {
+            products: [],
+            product: {}
+        },
+        mounted: function () {
+            let self = this;
+            axios.get("/Product/GetProduct").then((resp) => {
+                self.products = resp.data;
+            });
+        }
+    });
+</script>

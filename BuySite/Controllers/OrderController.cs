@@ -1,5 +1,5 @@
 ﻿using BuySite.Models.Entity;
-using BuySite.ViewModel;
+using BuySite.Models.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -30,7 +30,7 @@ namespace BuySite.Controllers
                     Address = orderViewModel.Address,
                     Phone = orderViewModel.Phone,
                 };
-                _BuySiteDBContext.Orders.Add(orderDetile);
+                _BuySiteDBContext.OrderDetiles.Add(orderDetile);
                 _BuySiteDBContext.SaveChanges();
             }
 

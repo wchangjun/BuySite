@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+}
+<form class="form-signin" id="login">
+    <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input type="email" id="inputaccount" v-model="user.account" class="form-control" placeholder="Email address" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword"  v-model="user.password" class="form-control" placeholder="Password" required>
+    <div class="checkbox mb-3">
+        <label>
+            <input type="checkbox" value="remember-me"> Remember me
+        </label>
+    </div>
+    <button id="red" class="btn btn-lg btn-primary btn-block" v-on:click="readyUpdate">Sign in</button>
+    <a class="btn btn-lg btn-primary btn-block" href=@Url.Action("FbLogin","Account")><span><i>Faceboo登入</i></span></a>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+
+    var app = new Vue({
+        el: "#login",
+        data: {
+            user: {
+                account: "",
+                password: "",
+
+            },
+        },
+        methods: {
+            readyUpdate: function () {
+                //let self = this;
+                ////發送PUT請求到API修改資料
+                //axios.post("/Account/Loging/", self.user)
+                //    .then((resp) => console.log(resp))
+                //    .catch((res) => console.log(res));
+                //window.location.reload();
+                axios({
+                    method: 'post',
+                    url: '/Account/Loging',
+                    //API要求的資料
+                    params: {
+                        Account: this.user.account,
+                        Password: this.user.password
+                    }
+                }).then((resp) => console.log(resp))
+                    .catch((res) => console.log(res));
+            }
+        }
+    });
+    var btn = document.getElementById("red");
+    btn.addEventListener("click", function () {
+        //取得帳號
+        let account = document.getElementById("inputaccount").value;
+        //取得密碼
+        let password = document.getElementById("inputPassword").value;
+        console.log(password);
+        //發出請求
+        //axios.post('/Account/Loging', {
+        //    params: {
+        //        Account: account,
+        //        Password: password
+        //    }
+        //})
+        //axios({
+        //    method: 'post',
+        //    url: '/Account/Loging',
+        //    //API要求的資料
+        //    params: {
+        //        Account: account,
+        //        Password: password
+        //    }
+        //}).then((resp) => console.log(resp))
+        //  .catch((res) => console.log(res));
+            //.then(function (response) {
+            //    if (response.data == true) {
+            //        alert("登入成功");
+            //        window.location.href="/home/index"
+            //    } else {
+            //        alert("帳號密碼錯誤");
+            //    }
+            //})
+            //.catch(function (error) {
+            //    console.log(error);
+            //});
+
+    })
+
+</script>
